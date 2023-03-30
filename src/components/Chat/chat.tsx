@@ -26,7 +26,6 @@ export const Chat: FC<user> = ({ name, message }) => {
   const [reciver, setReciver] = useState<string>('');
   const [isOpenForm, setisOpenForm] = useState(false);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isMessageOpen, setisMessageOpen] = useState(false);
 
   useEffect(() => {
@@ -34,7 +33,6 @@ export const Chat: FC<user> = ({ name, message }) => {
     axios
       .get('https://sockets-server.herokuapp.com/auth/users')
       .then((response) => setallusers(response.data));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message]);
 
   useMemo(() => {
@@ -56,12 +54,14 @@ export const Chat: FC<user> = ({ name, message }) => {
     }
   };
 
-  const optionsForSelectInput = allusers && allusers?.map((user) => {
-    return {
-      value: user.name,
-      label: user.name,
-    };
-  });
+  const optionsForSelectInput =
+    allusers &&
+    allusers?.map((user) => {
+      return {
+        value: user.name,
+        label: user.name,
+      };
+    });
 
   return (
     <div className="w-[1280px] m-auto ">
