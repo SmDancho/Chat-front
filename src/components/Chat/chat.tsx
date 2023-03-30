@@ -26,6 +26,7 @@ export const Chat: FC<user> = ({ name, message }) => {
   const [reciver, setReciver] = useState<string>('');
   const [isOpenForm, setisOpenForm] = useState(false);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isMessageOpen, setisMessageOpen] = useState(false);
 
   useEffect(() => {
@@ -33,6 +34,7 @@ export const Chat: FC<user> = ({ name, message }) => {
     axios
       .get('https://sockets-server.herokuapp.com/auth/users')
       .then((response) => setallusers(response.data));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message]);
 
   useMemo(() => {
