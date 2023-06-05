@@ -11,7 +11,7 @@ export function MainPage() {
 
   useEffect(() => {
     axios
-      .get('https://sockets-server.herokuapp.com/auth/getme', {
+      .get('https://chat-back-production-b8bf.up.railway.app/auth/getme', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

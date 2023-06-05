@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import axios from 'axios';
 import Autocomplete from '@mui/material/Autocomplete';
 
-const socket = io('https://sockets-server.herokuapp.com/');
+const socket = io('https://chat-back-production-b8bf.up.railway.app/');
 
 interface newestMessages {
   message?: string | undefined;
@@ -16,6 +16,7 @@ interface newestMessages {
 }
 interface users {
   name: string;
+  message: string;
 }
 export const Chat: FC<user> = ({ name, message }) => {
   const [newestMessages, setnewestMessages] = useState<newestMessages>();
@@ -32,9 +33,9 @@ export const Chat: FC<user> = ({ name, message }) => {
   useEffect(() => {
     parseArr();
     axios
-      .get('https://sockets-server.herokuapp.com/auth/users')
+      .get('https://chat-back-production-b8bf.up.railway.app/auth/users')
       .then((response) => setallusers(response.data));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message]);
 
   useMemo(() => {
@@ -171,6 +172,7 @@ export const Chat: FC<user> = ({ name, message }) => {
                   Topic: senTopic,
                   isVisible: 0,
                 });
+                setisOpenForm(false)
               }}
             >
               submit

@@ -9,7 +9,7 @@ export const Auth = () => {
 
   const handleSubmit = () => {
     axios
-      .post('https://sockets-server.herokuapp.com/Auth/login', {
+      .post('https://chat-back-production-b8bf.up.railway.app/Auth/login', {
         name,
       })
       .then((response) => {
